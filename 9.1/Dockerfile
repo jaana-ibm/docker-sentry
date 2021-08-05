@@ -83,6 +83,10 @@ RUN set -x \
     && python -c 'import maxminddb.extension; maxminddb.extension.Reader' \
     && apt-get purge -y --auto-remove make
 
+RUN PSYCOPG=$(pip freeze | grep psycopg2) \
+	&& pip uninstall -y $PSYCOPG \
+	&& pip install --no-binary :all: $PSYCOPG
+        
 ENV SENTRY_VERSION 9.1.2
 
 RUN set -x \
