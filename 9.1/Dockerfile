@@ -83,9 +83,8 @@ RUN set -x \
     && python -c 'import maxminddb.extension; maxminddb.extension.Reader' \
     && apt-get purge -y --auto-remove make
 
-RUN pip uninstall -y psycopg2-binary==2.7.7
-
-RUN pip install --no-binary :all: psycopg2-binary==2.7.7
+#RUN pip uninstall -y psycopg2-binary==2.7.7
+#RUN pip install --no-binary :all: psycopg2-binary==2.7.7
         
 ENV SENTRY_VERSION 9.1.2
 
